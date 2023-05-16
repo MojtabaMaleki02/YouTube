@@ -1,28 +1,39 @@
 import pandas as pd
+import seaborn as sns
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
 
-# Load the Titanic dataset from scikit-learn
-from sklearn.datasets import load_titanic
-titanic_data = load_titanic()
+# Load the Titanic dataset from seaborn
+data = sns.load_dataset("titanic")
 
-# Convert the dataset to a pandas DataFrame
-df = pd.DataFrame(data=titanic_data.data, columns=titanic_data.feature_names)
-df['target'] = titanic_data.target
+# Preprocess the data
+data.dropna(inplace=True)  # Remove rows with missing values
+
+# Select relevant features
+features = ['pclass', 'sex', 'age', 'fare', 'embarked']
+target = 'survived'
+data = data[features + [target]]
+
+# Perform one-hot encoding
+data_encoded = pd.get_dummies(data, drop_first=True)
+
+# Split the dataset into features (X) and target (y)
+X = data_encoded.drop(target, axis=1)  # Features
+y = data_encoded[target]  # Target
 
 # Split the data into training and testing sets
-X = df.drop('target', axis=1)
-y = df['target']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Train a random forest classifier
-rf_classifier = RandomForestClassifier(random_state=42)
-rf_classifier.fit(X_train, y_train)
+# Create a decision tree classifier
+classifier = DecisionTreeClassifier()
 
-# Make predictions on the test set
-y_pred = rf_classifier.predict(X_test)
+# Train the classifier on the training data
+classifier.fit(X_train, y_train)
 
-# Evaluate the accuracy of the model
+# Make predictions on the test data
+y_pred = classifier.predict(X_test)
+
+# Calculate the accuracy of the classifier
 accuracy = accuracy_score(y_test, y_pred)
 print("Accuracy:", accuracy)
