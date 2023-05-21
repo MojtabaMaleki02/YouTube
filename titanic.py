@@ -1,7 +1,7 @@
 import pandas as pd
 # for organizing data
 import seaborn as sns
-# for isualizing data and make it easier to understand
+# for visualizing data and make it easier to understand
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 # for predictions based on data patterns
