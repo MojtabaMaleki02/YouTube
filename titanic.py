@@ -15,6 +15,10 @@ target = 'survived'
 features = data.drop(target, axis=1) 
 
 # Perform one-hot encoding
+"""One-hot encoding is a technique used to convert categorical
+variables into a binary representation that can be used by 
+machine learning algorithms.
+"""
 data_encoded = pd.get_dummies(data, drop_first=True)
 
 # Split the dataset into features (X) and target (y)
