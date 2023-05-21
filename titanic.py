@@ -11,9 +11,8 @@ data = sns.load_dataset("titanic")
 data.dropna(inplace=True)  # Remove rows with missing values
 
 # Select relevant features
-features = ['pclass', 'sex', 'age', 'fare', 'embarked']
 target = 'survived'
-data = data[features + [target]]
+features = data.drop(target, axis=1) 
 
 # Perform one-hot encoding
 data_encoded = pd.get_dummies(data, drop_first=True)
