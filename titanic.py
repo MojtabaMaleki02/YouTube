@@ -1,8 +1,12 @@
 import pandas as pd
+# for organizing data
 import seaborn as sns
+# for isualizing data and make it easier to understand
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
+# for predictions based on data patterns
 from sklearn.metrics import accuracy_score
+# for measuring how accurate our predictions are compared to the actual answers
 
 # Load the Titanic dataset from seaborn
 data = sns.load_dataset("titanic")
