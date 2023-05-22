@@ -1,8 +1,13 @@
-import sklearn  # Import the scikit-learn library for machine learning
-from sklearn.datasets import load_breast_cancer  # Import the breast cancer dataset
-from sklearn.model_selection import train_test_split  # Import train_test_split for splitting the data
-from sklearn.naive_bayes import GaussianNB  # Import Gaussian Naive Bayes classifier
-from sklearn.metrics import accuracy_score  # Import accuracy_score to measure accuracy at the end
+import sklearn  
+#for machine learning
+from sklearn.datasets import load_breast_cancer  
+# Import the breast cancer dataset
+from sklearn.model_selection import train_test_split  
+# for splitting the data
+from sklearn.naive_bayes import GaussianNB  
+# for ML algorithm
+from sklearn.metrics import accuracy_score 
+# for measuring accuracy at the end
 
 
 # Load the breast cancer dataset
