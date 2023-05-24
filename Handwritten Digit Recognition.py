@@ -13,6 +13,7 @@ model = tf.keras.Sequential([
     # Flattens input images into a 1-dimensional array
     tf.keras.layers.Flatten(input_shape=(28, 28)),  
     # Fully connected layer with 128 units and ReLU activation
+    # ReLU stands for Rectified Linear Unit
     tf.keras.layers.Dense(128, activation='relu'),  
     # Fully connected layer with 10 units (output classes) and softmax activation
     tf.keras.layers.Dense(10, activation='softmax')  
