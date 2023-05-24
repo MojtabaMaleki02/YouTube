@@ -13,8 +13,8 @@ model = tf.keras.Sequential([
     # Flattens input images into a 1-dimensional array
     tf.keras.layers.Flatten(input_shape=(28, 28)),  
     # Fully connected layer with 128 units and ReLU activation
-    # ReLU stands for Rectified Linear Unit
     tf.keras.layers.Dense(128, activation='relu'),  
+    # ReLU is a activation function and it's stands for Rectified Linear Unit
     # Fully connected layer with 10 units (output classes) and softmax activation
     tf.keras.layers.Dense(10, activation='softmax')  
 ])
@@ -29,6 +29,7 @@ model.compile(optimizer='adam',
 
 # Train the model
 # Train the model on the training data for 5 epochs
+# epoch is the training of the neural network with all the training data for one cycle
 model.fit(train_images, train_labels, epochs=5)  
 
 # Evaluate the model
