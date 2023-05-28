@@ -2,7 +2,19 @@ from sklearn.datasets import load_boston
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
+"""
+Mean Squared Error (MSE): Mean Squared Error measures the average
+squared difference between the predicted values (y_pred) and
+the actual values (y_test). It provides a measure of how close the predicted
+values are to the actual values. 
+A lower MSE indicates better accuracy and performance of the model.
 
+R-squared (R2) Score: R-squared is a statistical measure that represents the proportion
+of the variance in the dependent variable (y) that can be explained by the independent 
+variables (X) in the linear regression model. R2 score ranges from 0 to 1, where 1 indicates
+a perfect fit and 0 indicates no linear relationship between the variables. It provides
+an indication of how well the model fits the data. Higher R2 scores indicate a better fit.
+"""
 # Load the Boston Housing dataset
 data = load_boston()
 
